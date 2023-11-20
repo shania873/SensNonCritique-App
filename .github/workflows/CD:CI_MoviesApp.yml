@@ -17,7 +17,7 @@ jobs:
       - name: Use GitHub Secret
         run: |
           echo "GitHub Event: ${{ secrets.TOKEN }}"
-          echo "GitHub Event: ${{ secrets.GITHUB_TOKEN }}"
+          echo "GitHub Event: ${{ secrets.GH_PAT }}"
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -50,7 +50,7 @@ jobs:
         run: |
           echo "GitHub Event: ${{ github.event_name }}"
           echo "Repository: ${{ github.repository }}"
-          echo "Token: ${{ secrets.GITHUB_TOKEN }}"
+          echo "Token: ${{ secrets.GH_PAT }}"
           echo "Current directory: $(pwd)"
           git status
           git remote -v
@@ -70,5 +70,5 @@ jobs:
       - name: Deploying to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
           publish_dir: ./build
