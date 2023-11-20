@@ -11,6 +11,8 @@ class MoviesList extends Component {
 
   onClickMovie = (id) => (e) => {
     this.props.fetchOneMovies(id);
+
+    //
   };
 
   render() {
