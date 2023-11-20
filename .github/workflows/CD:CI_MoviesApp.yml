@@ -37,6 +37,11 @@ jobs:
           name: production-files
           path: ./build
 
+      - name: Create gh-pages branch
+        run: |
+          git checkout -b gh-pages
+          git push origin gh-pages
+
       - name: Debug information
         run: |
           echo "GitHub Event: ${{ github.event_name }}"
