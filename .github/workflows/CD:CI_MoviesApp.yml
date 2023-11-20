@@ -56,6 +56,7 @@ jobs:
 
       - name: Display current directory
         run: |
+          cd $GITHUB_WORKSPACE
           ls
           pwd  # Print the current working directory
 
