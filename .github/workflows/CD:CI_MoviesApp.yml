@@ -57,8 +57,13 @@ jobs:
       - name: Display current directory
         run: |
           ls
-          ..cd
           pwd  # Print the current working directory
+
+      - name: Set up Git
+        run: |
+          cd $GITHUB_WORKSPACE  # Change to the root directory of the project
+          git config user.name "shania873"
+          git config user.email "vanaeca@hotmail.com"
 
       - name: Checkout gh-pages branch
         run: git checkout -b gh-pages origin/gh-pages
