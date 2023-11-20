@@ -54,11 +54,10 @@ jobs:
           name: production-files
           path: ./build
 
-      - name: Set up Git
+      - name: Display current directory
         run: |
           ls
-          git config user.name "shania873"
-          git config user.email "vanaeca@hotmail.com"
+          pwd  # Print the current working directory
 
       - name: Checkout gh-pages branch
         run: git checkout -b gh-pages origin/gh-pages
