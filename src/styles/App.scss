@@ -1,0 +1,28 @@
+body {
+  //   background-color: red;
+}
+
+.card-title {
+  h6 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: rgb(22, 22, 22);
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: rgb(22, 22, 22);
+  }
+}
+
+.card-item {
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
+}

@@ -1,0 +1,19 @@
+import { React, StrictMode } from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store";
+
+console.log("process.env.PUBLIC_URL", process.env.PUBLIC_URL);
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById("root")
+);
