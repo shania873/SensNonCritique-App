@@ -36,6 +36,14 @@ jobs:
         with:
           name: production-files
           path: ./build
+      - name: Debug information
+        run: |
+          echo "GitHub Event: ${{ github.event_name }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Token: ${{ secrets.GITHUB_TOKEN }}"
+          echo "Current directory: $(pwd)"
+          git status
+          git remote -v
 
   deploy:
     name: Deploy
