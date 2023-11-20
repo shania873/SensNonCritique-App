@@ -41,21 +41,16 @@ jobs:
           name: production-files
           path: ./build
 
-      - name: Create gh-pages branch
+      - name: Set up Git
         run: |
           git config user.name "shania873"
-          git config user.email "vanaeca@hotmail.com"
-          git checkout -b gh-pages
-          git push origin gh-pages
+          git config user.email "your-email@example.com"
 
-      - name: Debug information
-        run: |
-          echo "GitHub Event: ${{ github.event_name }}"
-          echo "Repository: ${{ github.repository }}"
-          echo "Token: ${{ secrets.GH_PAT }}"
-          echo "Current directory: $(pwd)"
-          git status
-          git remote -v
+      - name: Pull changes
+        run: git pull origin gh-pages
+
+      - name: Push changes
+        run: git push origin gh-pages
 
   deploy:
     name: Deploy
