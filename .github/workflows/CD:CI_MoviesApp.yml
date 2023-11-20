@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Use GitHub Secret
+        run: ${{ secrets.TOKEN }}
       - name: Checkout code
         uses: actions/checkout@v2
 
