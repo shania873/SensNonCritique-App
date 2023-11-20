@@ -63,7 +63,12 @@ jobs:
           cd $GITHUB_WORKSPACE
           ls
           pwd  # Print the current working directory
-
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Git
         run: |
           git config user.name "shania873"
