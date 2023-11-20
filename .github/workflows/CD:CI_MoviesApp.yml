@@ -41,17 +41,6 @@ jobs:
           name: production-files
           path: ./build
 
-      - name: Set up Git
-        run: |
-          git config user.name "shania873"
-          git config user.email "your-email@example.com"
-
-      - name: Pull changes
-        run: git pull origin gh-pages
-
-      - name: Push changes
-        run: git push origin gh-pages
-
   deploy:
     name: Deploy
     needs: build
@@ -64,8 +53,19 @@ jobs:
           name: production-files
           path: ./build
 
-      - name: Deploying to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GH_PAT }}
-          publish_dir: ./build
+      - name: Set up Git
+        run: |
+          git config user.name "shania873"
+          git config user.email "vanaeca@hotmail.com"
+
+      - name: Checkout gh-pages branch
+        run: git checkout -b gh-pages origin/gh-pages
+
+      - name: Copy build files to gh-pages branch
+        run: cp -r ./build/* .
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "Update gh-pages with production build"
+          git push origin gh-pages
