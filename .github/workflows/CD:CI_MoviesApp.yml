@@ -15,7 +15,9 @@ jobs:
 
     steps:
       - name: Use GitHub Secret
-        run: ${{ secrets.TOKEN }}
+        run: |
+          echo "GitHub Event: ${{ secrets.TOKEN }}"
+          echo "GitHub Event: ${{ secrets.GITHUB_TOKEN }}"
       - name: Checkout code
         uses: actions/checkout@v2
 
