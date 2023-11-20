@@ -16,7 +16,6 @@ class MoviesList extends Component {
   render() {
     return (
       <Fragment>
-        {console.log(this.props.movies)}
         <h4 className="underline">EN CE MOMENT SUR SENS - NON - CRITIQUE</h4>
 
         <Row>

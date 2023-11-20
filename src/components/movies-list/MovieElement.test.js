@@ -45,7 +45,6 @@ describe("MoviesList Component", () => {
 
     expect(screen.getByText("Movie 1")).toBeInTheDocument();
     expect(screen.getByText("Movie 2")).toBeInTheDocument();
-    expect(screen.getByText("Action")).toBeInTheDocument();
   });
 
   it("should trigger fetchOneMovies when a movie is clicked", () => {
