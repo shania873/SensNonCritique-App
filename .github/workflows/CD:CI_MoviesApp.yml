@@ -14,12 +14,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Use GitHub Secret
-        run: |
-          echo "GitHub Event: ${{ secrets.TOKEN }}"
-          echo "GitHub Event: ${{ secrets.GH_PAT }}"
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config user.name "shania873"
+          git config user.email "vanaeca@hotmail.com"
 
       - name: Installing Node.js
         uses: actions/setup-node@v1
