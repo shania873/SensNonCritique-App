@@ -2,7 +2,7 @@
   "name": "form-react-boilerplate",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shania873.github.io/Movie-App",
+  "homepage": "https://shania873.github.io/SensNonCritique-App",
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^5.17.0",
