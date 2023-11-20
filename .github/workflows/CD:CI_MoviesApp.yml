@@ -17,10 +17,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Installing Node.jsæ
+      - name: Installing Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: 20
+          node-version: 14 # Change this to the Node.js version you need
 
       - name: Installing NPM packages
         run: npm install --force
@@ -36,6 +36,7 @@ jobs:
         with:
           name: production-files
           path: ./build
+
       - name: Debug information
         run: |
           echo "GitHub Event: ${{ github.event_name }}"
