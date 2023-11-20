@@ -57,6 +57,7 @@ jobs:
       - name: Display current directory
         run: |
           ls
+          ..cd
           pwd  # Print the current working directory
 
       - name: Checkout gh-pages branch
