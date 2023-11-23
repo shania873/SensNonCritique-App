@@ -26,7 +26,7 @@ class MoviesList extends Component {
               {this.props.movies.map((movie) => {
                 return (
                   <Col sm={2} key={movie.id}>
-                    <div onClick={this.onClickMovie(movie.id)}>
+                    <div>
                       <MovieElement
                         key={movie.id}
                         title={movie.title}
@@ -35,7 +35,7 @@ class MoviesList extends Component {
                         id={movie.id}
                         genre={movie.genre}
                         lengthMovie={this.props.movies.length}
-                        voteCount={movie.voteCount}
+                        voteAverage={movie.voteAverage.toFixed(1)}
                       />
                     </div>
                   </Col>

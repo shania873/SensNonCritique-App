@@ -26,3 +26,23 @@ body {
 .underline {
   text-decoration: underline;
 }
+
+.voteAverage {
+  color: rgb(22, 22, 22);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+
+  border: 3px solid black;
+  display: inline-block;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+a {
+  color: rgb(22, 22, 22);
+  text-decoration: none !important;
+}
+
+.bold {
+  font-weight: bold;
+}

@@ -1,14 +1,27 @@
-import Layout from "./components/layout/Layout";
 import React, { Component } from "react";
 
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./styles/App.scss";
+
+import { Home, MoviesDetails, Layout, Loading } from "./components/index";
 class App extends Component {
   render() {
     return (
-      <Routes>
-        <Route exact path="/" element={<Layout />} />
-      </Routes>
+      <Router>
+        <Switch>
+          <Layout>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/movies-details/:id" exact>
+              <MoviesDetails />
+            </Route>
+            {/* <Route>
+              <Loading />
+            </Route> */}
+          </Layout>
+        </Switch>
+      </Router>
     );
   }
 }
