@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 export default class MoviesList extends Component {
   render() {
     let variant = "Light";
-
     return (
       <Fragment>
         <Link to={"movies-details/" + this.props.id}>
@@ -15,6 +14,10 @@ export default class MoviesList extends Component {
             className="mb-4 card-item"
           >
             <Card.Body>
+              {console.log(
+                "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
+                  this.props.poster_path
+              )}
               {this.props.poster && (
                 <img
                   src={this.props.poster}
@@ -24,7 +27,7 @@ export default class MoviesList extends Component {
               )}
               <Card.Title>
                 <h6>{this.props.title} </h6>
-                <p>{this.props.voteAverage}</p>
+                <p>{this.props.vote_average}</p>
               </Card.Title>
             </Card.Body>
           </Card>

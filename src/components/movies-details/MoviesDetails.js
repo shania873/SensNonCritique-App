@@ -16,7 +16,6 @@ class MoviesDetails extends Component {
 
   componentDidMount() {
     this.props.fetchOneMovies(this.state.id);
-    console.log(this.props.selectedMovie);
   }
 
   render() {
@@ -27,24 +26,27 @@ class MoviesDetails extends Component {
           <Row>
             <Col sm={2}>
               <img
-                src={this.props.selectedMovie.posterUrl}
+                src={
+                  "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
+                  this.props.selectedMovie.poster_path
+                }
                 className="img-fluid"
-                alt={this.props.selectedMovie.posterUrl}
+                alt={
+                  "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
+                  this.props.selectedMovie.poster_path
+                }
               />
             </Col>
 
             <Col sm={10}>
               <h2>{this.props.selectedMovie.title}</h2>
               <p>
-                {new Date(this.props.selectedMovie.releaseDate).getFullYear()}
+                {new Date(this.props.selectedMovie.release_date).getFullYear()}
               </p>
               <p className="voteAverage">
-                {this.props.selectedMovie?.voteAverage?.toFixed(1)}
+                {this.props.selectedMovie?.vote_average?.toFixed(1)}
               </p>
-              <p>
-                <span className="bold">Genre:</span>{" "}
-                {this.props.selectedMovie.genre}
-              </p>
+
               <p>{this.props.selectedMovie.overview}</p>
             </Col>
           </Row>

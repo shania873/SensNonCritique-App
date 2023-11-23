@@ -7,6 +7,7 @@ import { fetchMovies, fetchOneMovies } from "../../store/actions/movieActions";
 class MoviesList extends Component {
   componentDidMount() {
     this.props.fetchMovies();
+    console.log(this.props.movies.results);
   }
 
   onClickMovie = (id) => (e) => {
@@ -21,28 +22,33 @@ class MoviesList extends Component {
         <h4 className="underline">EN CE MOMENT SUR SENS - NON - CRITIQUE</h4>
 
         <Row>
-          {this.props.movies && this.props.movies.length > 0 && (
-            <Fragment>
-              {this.props.movies.map((movie) => {
-                return (
-                  <Col sm={2} key={movie.id}>
-                    <div>
-                      <MovieElement
-                        key={movie.id}
-                        title={movie.title}
-                        year={movie.popularity}
-                        poster={movie.posterUrl ? movie.posterUrl : null}
-                        id={movie.id}
-                        genre={movie.genre}
-                        lengthMovie={this.props.movies.length}
-                        voteAverage={movie.voteAverage.toFixed(1)}
-                      />
-                    </div>
-                  </Col>
-                );
-              })}
-            </Fragment>
-          )}
+          {this.props.movies.results &&
+            this.props.movies.results.length > 0 && (
+              <Fragment>
+                {this.props.movies.results.map((movie) => {
+                  return (
+                    <Col sm={2} key={movie.id}>
+                      {console.log(movie)}
+                      <div>
+                        <MovieElement
+                          key={movie.id}
+                          title={movie.original_title}
+                          year={movie.release_date}
+                          poster={
+                            "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
+                            movie?.poster_path
+                          }
+                          id={movie.id}
+                          genre={movie.genre}
+                          // lengthMovie={this.props.movies.length}
+                          // voteAverage={movie.voteAverage.toFixed(1)}
+                        />
+                      </div>
+                    </Col>
+                  );
+                })}
+              </Fragment>
+            )}
         </Row>
       </Fragment>
     );
