@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./styles/App.scss";
 
-import { Home, MoviesDetails, Layout, Loading } from "./components/index";
+import { Home, MoviesDetails, Layout } from "./components/index";
 class App extends Component {
   render() {
     return (
@@ -16,9 +16,6 @@ class App extends Component {
             <Route path="/movies-details/:id" exact>
               <MoviesDetails />
             </Route>
-            {/* <Route>
-              <Loading />
-            </Route> */}
           </Layout>
         </Switch>
       </Router>
