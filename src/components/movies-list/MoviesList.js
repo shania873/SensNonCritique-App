@@ -7,13 +7,10 @@ import { fetchMovies, fetchOneMovies } from "../../store/actions/movieActions";
 class MoviesList extends Component {
   componentDidMount() {
     this.props.fetchMovies();
-    console.log(this.props.movies.results);
   }
 
   onClickMovie = (id) => (e) => {
     this.props.fetchOneMovies(id);
-
-    //
   };
 
   render() {

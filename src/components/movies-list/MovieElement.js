@@ -6,7 +6,7 @@ export default class MoviesList extends Component {
     let variant = "Light";
     return (
       <Fragment>
-        <Link to={"movies-details/" + this.props.id}>
+        <Link to={"SensNonCritique-App/movies-details/" + this.props.id}>
           <Card
             bg={variant.toLowerCase()}
             key={variant}
@@ -14,10 +14,6 @@ export default class MoviesList extends Component {
             className="mb-4 card-item"
           >
             <Card.Body>
-              {console.log(
-                "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
-                  this.props.poster_path
-              )}
               {this.props.poster && (
                 <img
                   src={this.props.poster}
