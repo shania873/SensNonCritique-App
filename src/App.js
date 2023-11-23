@@ -10,10 +10,10 @@ class App extends Component {
       <Router>
         <Switch>
           <Layout>
-            <Route path="/" exact>
+            <Route path="/SensNonCritique-App" exact>
               <Home />
             </Route>
-            <Route path="/movies-details/:id" exact>
+            <Route path="/movies-details/:id">
               <MoviesDetails />
             </Route>
           </Layout>
