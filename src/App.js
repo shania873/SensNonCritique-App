@@ -13,7 +13,7 @@ class App extends Component {
             <Route path="/SensNonCritique-App" exact>
               <Home />
             </Route>
-            <Route path="/movies-details/:id">
+            <Route path="/SensNonCritique-App/movies-details/:id">
               <MoviesDetails />
             </Route>
           </Layout>
