@@ -90,3 +90,10 @@ a {
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   transition: all 0.3s ease-in-out;
 }
+
+button {
+  border: 0;
+  background: none;
+  width: 100%;
+  height: auto;
+}

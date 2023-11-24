@@ -5,11 +5,19 @@ import Col from "react-bootstrap/Col";
 import { connect } from "react-redux";
 import { fetchMovies, fetchOneMovies } from "../../store/actions/movieActions";
 class MoviesList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // id: this.props.match.params.id,
+    };
+  }
+
   componentDidMount() {
     this.props.fetchMovies();
   }
 
-  onClickMovie = (id) => (e) => {
+  onClickMovie = (id) => {
     this.props.fetchOneMovies(id);
   };
 
@@ -24,7 +32,6 @@ class MoviesList extends Component {
               {this.props.movies.results.map((movie) => {
                 return (
                   <Col sm={2} key={movie.id}>
-                    {console.log(movie)}
                     <div>
                       <MovieElement
                         key={movie.id}

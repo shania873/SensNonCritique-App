@@ -1,18 +1,29 @@
-import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, { Fragment } from "react";
+import { withRouter } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-export default class MoviesList extends Component {
+class MoviesList extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      id: this.props.match.params.id,
+      variant: "Light",
+    };
+  }
+
+  onClickMoviesDetails = () => {
+    this.props.history.push(
+      "/SensNonCritique-App/movies-details/" + this.props.id
+    );
+  };
+
   render() {
-    let variant = "Light";
     return (
       <Fragment>
-        <Link
-          // from="SensNonCritique-App"
-          to={"SensNonCritique-App/movies-details/" + this.props.id}
-        >
+        <button onClick={this.onClickMoviesDetails}>
           <Card
-            bg={variant.toLowerCase()}
-            key={variant}
+            bg={this.state.variant.toLowerCase()}
+            key={this.state.variant}
             className="mb-4 card-item"
           >
             <Card.Body>
@@ -29,8 +40,9 @@ export default class MoviesList extends Component {
               </Card.Title>
             </Card.Body>
           </Card>
-        </Link>
+        </button>
       </Fragment>
     );
   }
 }
+export default withRouter(MoviesList);
