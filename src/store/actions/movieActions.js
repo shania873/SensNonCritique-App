@@ -17,9 +17,11 @@ export const fetchMovies = () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
+
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         dispatch({ type: "FETCH_MOVIES_SUCCESS", payload: data });
       })
       .catch((error) => {
@@ -32,7 +34,7 @@ export const fetchMovies = () => {
 export const fetchOneMovies = (i) => async (dispatch) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${i}?language=fr-FR`,
+      `https://api.themoviedb.org/3/movie/${i}?language=fr-FR&include_video=true`,
       {
         method: "GET",
         headers: {

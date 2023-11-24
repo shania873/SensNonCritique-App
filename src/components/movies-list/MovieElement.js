@@ -10,7 +10,6 @@ export default class MoviesList extends Component {
           <Card
             bg={variant.toLowerCase()}
             key={variant}
-            text={"white"}
             className="mb-4 card-item"
           >
             <Card.Body>

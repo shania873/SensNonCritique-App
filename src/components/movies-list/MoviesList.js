@@ -19,33 +19,32 @@ class MoviesList extends Component {
         <h4 className="underline">EN CE MOMENT SUR SENS - NON - CRITIQUE</h4>
 
         <Row>
-          {this.props.movies.results &&
-            this.props.movies.results.length > 0 && (
-              <Fragment>
-                {this.props.movies.results.map((movie) => {
-                  return (
-                    <Col sm={2} key={movie.id}>
-                      {console.log(movie)}
-                      <div>
-                        <MovieElement
-                          key={movie.id}
-                          title={movie.original_title}
-                          year={movie.release_date}
-                          poster={
-                            "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
-                            movie?.poster_path
-                          }
-                          id={movie.id}
-                          genre={movie.genre}
-                          // lengthMovie={this.props.movies.length}
-                          // voteAverage={movie.voteAverage.toFixed(1)}
-                        />
-                      </div>
-                    </Col>
-                  );
-                })}
-              </Fragment>
-            )}
+          {this.props.movies && this.props.movies.results && (
+            <Fragment>
+              {this.props.movies.results.map((movie) => {
+                return (
+                  <Col sm={2} key={movie.id}>
+                    {console.log(movie)}
+                    <div>
+                      <MovieElement
+                        key={movie.id}
+                        title={movie.original_title}
+                        year={movie.release_date}
+                        poster={
+                          "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
+                          movie?.poster_path
+                        }
+                        id={movie.id}
+                        genre={movie.genre}
+                        // lengthMovie={this.props.movies.length}
+                        // voteAverage={movie.voteAverage.toFixed(1)}
+                      />
+                    </div>
+                  </Col>
+                );
+              })}
+            </Fragment>
+          )}
         </Row>
       </Fragment>
     );
@@ -56,10 +55,7 @@ const mapStateToProps = (state) => ({
     state.default !== undefined && state.default.selectedMovie
       ? state.default.selectedMovie
       : null,
-  movies:
-    state.default !== undefined && state.default.movies
-      ? state.default.movies
-      : null,
+  movies: state.moviesReducer.movies,
   isLoading:
     state.default !== undefined && state.default.isLoading
       ? state.default.isLoading
