@@ -7,8 +7,8 @@ export default class MoviesList extends Component {
     return (
       <Fragment>
         <Link
-          // from="/SensNonCritique-App"
-          to={"/movies-details/" + this.props.id}
+          // from="SensNonCritique-App"
+          to={"SensNonCritique-App/movies-details/" + this.props.id}
         >
           <Card
             bg={variant.toLowerCase()}
