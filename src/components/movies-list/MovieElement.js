@@ -6,7 +6,10 @@ export default class MoviesList extends Component {
     let variant = "Light";
     return (
       <Fragment>
-        <Link to={"SensNonCritique-App/movies-details/" + this.props.id}>
+        <Link
+          // from="/SensNonCritique-App"
+          to={"/movies-details/" + this.props.id}
+        >
           <Card
             bg={variant.toLowerCase()}
             key={variant}
