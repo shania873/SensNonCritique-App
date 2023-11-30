@@ -1,6 +1,4 @@
 export const fetchMovies = () => {
-  // https://api.themoviedb.org/3/movie/550?api_key=9363895cf925057b041bf503bb589e07
-  // `https://api.themoviedb.org/3/discover/movie?api_key=9363895cf925057b041bf503bb589e07`
   return (dispatch) => {
     fetch(
       `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=true&language=en-US&page=1&sort_by=popularity.desc&with_release_type=2|3`,
@@ -30,7 +28,6 @@ export const fetchMovies = () => {
   };
 };
 
-//'https://api.themoviedb.org/3/movie/${i}?language=fr-FR'
 export const fetchOneMovies = (i) => async (dispatch) => {
   try {
     const response = await fetch(

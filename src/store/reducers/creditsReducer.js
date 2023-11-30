@@ -2,7 +2,6 @@ let initialState = {
   credits: [],
   isLoading: false,
   error: null,
-  selectedCredits: {},
 };
 
 const creditsReducer = (state = initialState, action) => {
@@ -21,7 +20,13 @@ const creditsReducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload,
       };
-
+    case "FETCH_ONE_CREDITS_SUCCESS":
+      return {
+        ...state,
+        selectedCredits: action.payload,
+        isLoading: false,
+        error: null,
+      };
     default:
       return state;
   }

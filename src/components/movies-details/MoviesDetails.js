@@ -5,8 +5,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { connect } from "react-redux";
 import { fetchMovies, fetchOneMovies } from "../../store/actions/movieActions";
-import { fetchCreditsMovies } from "../../store/actions/creditsMovieAction";
+import {
+  fetchCreditsMovies,
+  fetchCreditsOneActor,
+} from "../../store/actions/creditsMovieAction";
 import { fetchVideosMovies } from "../../store/actions/videosMovieAction";
+
+import CreditsModalDetails from "../credits-modal-details/CreditsModalDetails";
 class MoviesDetails extends Component {
   constructor(props) {
     super(props);
@@ -20,14 +25,16 @@ class MoviesDetails extends Component {
     this.props.fetchOneMovies(this.state.id);
     this.props.fetchCreditsMovies(this.state.id);
     this.props.fetchVideosMovies(this.state.id);
-    console.log(this.props);
+  }
+
+  fetchOneCreditActor(id) {
+    this.props.fetchCreditsOneActor(id);
   }
 
   render() {
     return (
       <Fragment>
         <Container>
-          {/* <h3>Détails</h3> backdrop_path*/}
           <div className="background-landscape">
             {this.props?.videos && this.props?.videos?.results && (
               <iframe
@@ -35,8 +42,8 @@ class MoviesDetails extends Component {
                 height="315"
                 src={`https://www.youtube.com/embed/${this.props?.videos?.results[0].key}?si=4KpUxsP-x1O9Yy59`}
                 title="YouTube video player"
-                frameborder="0"
-                allowfullscreen
+                frameBorder="0"
+                allowFullScreen
               ></iframe>
             )}
           </div>
@@ -72,23 +79,32 @@ class MoviesDetails extends Component {
             {this.props?.credits?.cast?.map((movie, idx) => {
               return (
                 <>
-                  {idx < 5 && (
-                    <Col>
-                      <img
-                        src={
+                  {idx < 8 && (
+                    <Col key={movie.id} sm={3} xs={12}>
+                      <CreditsModalDetails
+                        id={movie.id}
+                        name={movie.name}
+                        profile_path={
                           "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
                           movie.profile_path
                         }
-                        className=" img-fluid image-actors"
-                        alt={
-                          "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
-                          movie.profile_path
-                        }
-                      />
-                      <p className="m-0">{movie.name}</p>
-                      <span className="underline-p m-0">
-                        ({movie.character})
-                      </span>
+                      >
+                        <img
+                          src={
+                            "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
+                            movie.profile_path
+                          }
+                          className=" img-fluid image-actors"
+                          alt={
+                            "https://www.themoviedb.org/t/p/w440_and_h660_face/" +
+                            movie.profile_path
+                          }
+                        />
+                        <p className="m-0">{movie.name}</p>
+                        <span className="underline-p m-0">
+                          ({movie.character})
+                        </span>
+                      </CreditsModalDetails>
                     </Col>
                   )}
                 </>
@@ -112,4 +128,5 @@ export default connect(mapStateToProps, {
   fetchOneMovies,
   fetchCreditsMovies,
   fetchVideosMovies,
+  fetchCreditsOneActor,
 })(withRouter(MoviesDetails));

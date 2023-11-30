@@ -1,6 +1,4 @@
 export const fetchVideosMovies = (i) => {
-  // https://api.themoviedb.org/3/movie/550?api_key=9363895cf925057b041bf503bb589e07
-  // `https://api.themoviedb.org/3/discover/movie?api_key=9363895cf925057b041bf503bb589e07`
   return (dispatch) => {
     fetch(`https://api.themoviedb.org/3/movie/${i}/videos?language=en-US`, {
       method: "GET",
@@ -17,7 +15,6 @@ export const fetchVideosMovies = (i) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         dispatch({ type: "FETCH_VIDEOS_SUCCESS", payload: data });
       })
       .catch((error) => {
